@@ -1,8 +1,7 @@
-import axios from "axios"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom"
-import { selectedProduct, removeSelectedProduct } from "../redux/actions/productActions";
+import { fetchProduct, removeSelectedProduct } from "../redux/actions/productActions";
 
 export default function ProductDetail(){
 
@@ -13,15 +12,15 @@ export default function ProductDetail(){
     const dispatch = useDispatch();
 
 
-    const fetchProductDetail = async () => {
-        const response = await axios.get(`https://fakestoreapi.com/products/${productId}`).catch(err => console.log('err', err));
+    // const fetchProductDetail = async () => {
+    //     const response = await axios.get(`https://fakestoreapi.com/products/${productId}`).catch(err => console.log('err', err));
 
-        dispatch(selectedProduct(response.data))
-    }
+    //     dispatch(selectedProduct(response.data))
+    // }
 
     useEffect(() => {
         if(productId && productId !== ''){
-            fetchProductDetail()
+            dispatch(fetchProduct(productId))
         }
         return () => {
             dispatch(removeSelectedProduct())
@@ -60,9 +59,9 @@ export default function ProductDetail(){
                     </div>
                 </div>
             )}
-            <div className="ui placeholder segment">
+            {/* <div className="ui placeholder segment">
                 <div className=""></div>
-            </div>
+            </div> */}
         </div>
     )
 }
