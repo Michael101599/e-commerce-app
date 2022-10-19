@@ -5,7 +5,7 @@ import { fetchProduct, removeSelectedProduct } from "../redux/actions/productAct
 
 export default function ProductDetail(){
 
-    const product = useSelector((state) => state.product)
+    let product = useSelector((state) => state.product)
 
     const {productId} = useParams();
     console.log(product);
