@@ -7,7 +7,7 @@ export default function Header(){
     return(
         <div className="ui fixed menu"  >
             <div className="ui container center" >
-                <h2 onClick={() => navigate('/')}>E-Shop</h2>
+                <h2 className="logo" onClick={() => navigate('/')}>E-Shop</h2>
             </div>
         </div>
     )

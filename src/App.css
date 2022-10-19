@@ -42,6 +42,10 @@
   padding-top: 15px;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .ui.grid.container {
   margin-top: 45px;
 }
